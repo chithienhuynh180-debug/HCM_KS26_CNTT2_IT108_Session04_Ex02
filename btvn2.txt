@@ -1,0 +1,15 @@
+Phần 1: Phân tích
+
+Bước 1: `pwd` cho ra `C:\Users\<User>\Desktop`, tức là đang đứng ở Desktop.
+
+Bước 2: `dir` không thấy deploy.ps1 trong Desktop, nên file không nằm ở đây.
+
+Bước 3: File thực tế nằm ở `Downloads\Project`. Gõ `deploy.ps1` thì PowerShell coi đó là tên lệnh và không tìm trong thư mục hiện tại (cơ chế bảo mật, tránh chạy nhầm file lạ), nên báo not recognized. Gõ `.\deploy.ps1` là cách gọi đúng, nhưng thư mục hiện tại là Desktop không có file nên báo không tìm thấy đường dẫn.
+
+Phần 2: Sửa lỗi
+
+cd ..\Downloads\Project
+
+Test-Path .\deploy.ps1
+
+.\deploy.ps1
